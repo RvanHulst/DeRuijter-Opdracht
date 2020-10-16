@@ -11,9 +11,8 @@ padding: 0;
 
   #trainerPageContainer{
       display: none;
-      height: 100vh;
       width: 100vw;
-      background-color: #4CAF50;
+      background-color: #8b8b8b;
   }
   
 .center {
@@ -44,4 +43,16 @@ padding: 0;
     color: white;
   }
 
-  
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    
+  }
+  th, td {
+    padding: 15px;
+  }
+
+  .imagePerson{
+    height: 200px;
+    height: 200px;
+  }

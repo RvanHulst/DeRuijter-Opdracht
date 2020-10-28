@@ -1,6 +1,7 @@
 const buttonStart = document.getElementById("buttonStart");
 const startPage = document.getElementById("startPageContainer");
 const trainerPage = document.getElementById("trainerPageContainer");
+const trainerTable = document.getElementById("trainerTable");
 
 const people = [
     {name: 'Barack Obama', img: "img/people/person1.jpg"},
@@ -16,7 +17,15 @@ buttonStart.onclick = function() {
 }
 
 function createTable() {
-    for (let tableRow = 0; tableRow < people.length; tableRow++) {
-        console.log(tableRow);
+    for (let index = 0; index < people.length; index++) {
+        var row = trainerTable.insertRow(1);
+        var cell1 = row.insertCell(0); 
+        cell1.innerHTML = people[index].name;
+        cell1.id = "name" + index; 
+        document.getElementById('name'+index).addEventListener("click", function(){
+            console.log(document.getElementById('name'+index).innerHTML)
+        });
     }
 }
+
+//<th><img class="imagePerson" src="${people[index].img}"></th>

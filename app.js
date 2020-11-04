@@ -22,10 +22,20 @@ function createTable() {
         var cell1 = row.insertCell(0); 
         cell1.innerHTML = people[index].name;
         cell1.id = "name" + index; 
-        document.getElementById('name'+index).addEventListener("click", function(){
-            console.log(document.getElementById('name'+index).innerHTML)
+        cell1.addEventListener("click", function(){
+            console.log(document.getElementById('name'+index).innerHTML);
         });
+        var cell2 = row.insertCell(1);
+        cell2.id = "img" + index; 
+        cell2.addEventListener("click", function(){
+            console.log(document.getElementById('img'+index).innerHTML);
+        });
+        var imageCell2 = document.createElement("img");
+        imageCell2.src = people[index].img;
+        imageCell2.classList.add("imagePerson");
+        document.getElementById('img'+index).appendChild(imageCell2); 
+
     }
 }
-
+// document.getElementById("myImg").src;
 //<th><img class="imagePerson" src="${people[index].img}"></th>

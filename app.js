@@ -9,8 +9,6 @@ const people = [
     {name: 'Bill Cosby', img: "img/people/person3.jpg"},
     {name: 'Batman', img: "img/people/person4.jpg"}
 ]
-const names = ['Barack Obama','Donald Trump','Bill Cosby','Batman'];
-const photos = ["img/people/person1.jpg","img/people/person2.jpg","img/people/person3.jpg","img/people/person4.jpg"];
     
 buttonStart.onclick = function() {
     startPage.style.display = "none";
@@ -23,8 +21,12 @@ function shuffle(array) {
   }
 
 function createTable() {
+    const names = ['Barack Obama','Donald Trump','Bill Cosby','Batman'];
+    const photos = ["img/people/person1.jpg","img/people/person2.jpg","img/people/person3.jpg","img/people/person4.jpg"];
+
     shuffle(photos);
     shuffle(names);
+    
     for (let index = 0; index < people.length; index++) {
         var row = trainerTable.insertRow(1);
         var cell1 = row.insertCell(0); 
@@ -45,5 +47,17 @@ function createTable() {
 
     }
 }
-// document.getElementById("myImg").src;
-//<th><img class="imagePerson" src="${people[index].img}"></th>
+
+// Checks if the image and name are the same.
+// If true then remove the correct answers.
+// If false then dont do annything.
+function compare() {
+
+}
+
+    if ("") {
+        
+    } else {
+        display = "none";
+        
+    }

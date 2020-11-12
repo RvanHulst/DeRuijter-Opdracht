@@ -9,6 +9,9 @@ const people = [
     {name: 'Bill Cosby', img: "img/people/person3.jpg"},
     {name: 'Batman', img: "img/people/person4.jpg"}
 ]
+
+var clickedName;
+var clickedImage;
     
 buttonStart.onclick = function() {
     startPage.style.display = "none";
@@ -26,25 +29,26 @@ function createTable() {
 
     shuffle(photos);
     shuffle(names);
-    
+
     for (let index = 0; index < people.length; index++) {
         var row = trainerTable.insertRow(1);
         var cell1 = row.insertCell(0); 
         cell1.innerHTML = names[index];
         cell1.id = "name" + index; 
         cell1.addEventListener("click", function(){
-            console.log(document.getElementById('name'+index).innerHTML);
+            clickedName = document.getElementById('name'+index).innerHTML;
+            compare();
         });
         var cell2 = row.insertCell(1);
         cell2.id = "img" + index; 
         cell2.addEventListener("click", function(){
-            console.log(document.getElementById('img'+index).innerHTML);
+            clickedImage = document.getElementById('img'+index).innerHTML;
+            compare();
         });
         var imageCell2 = document.createElement("img");
         imageCell2.src = photos[index];
         imageCell2.classList.add("imagePerson");
         document.getElementById('img'+index).appendChild(imageCell2); 
-
     }
 }
 
@@ -52,12 +56,14 @@ function createTable() {
 // If true then remove the correct answers.
 // If false then dont do annything.
 function compare() {
-
+    if(clickedName && clickedImage != null){
+        const clickedAnswer = people.filter(person => person.name == clickedName);
+       //if (clickedImage == clickedAnswer.img) {
+       //    console.log("correct");
+       //}
+        console.log(clickedAnswer.img);
+        clickedName = null;
+        clickedImage = null;
+    }
 }
 
-    if ("") {
-        
-    } else {
-        display = "none";
-        
-    }

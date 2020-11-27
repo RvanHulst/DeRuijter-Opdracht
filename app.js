@@ -35,12 +35,15 @@ function createTable() {
         var cell1 = row.insertCell(0); 
         cell1.innerHTML = names[index];
         cell1.id = "name" + index; 
+        cell1.classList.add("")
         cell1.addEventListener("click", function(){
             clickedName = document.getElementById('name'+index).innerHTML;
+            hideNameElement = document.getElementById('name'+index);
             compare();
         });
         var cell2 = row.insertCell(1);
         cell2.id = "cellIamge"+index;
+        cell2.classList.add("")
     
         var imageCell2 = document.createElement("img");
         imageCell2.src = photos[index];
@@ -50,6 +53,7 @@ function createTable() {
 
         cell2.addEventListener("click", function(){
             clickedImage = document.getElementById('img'+index).getAttribute('src');
+            hideImageElement = document.getElementById('img'+index);
             compare();
         });
     }
@@ -63,7 +67,9 @@ function compare() {
         const clickedAnswer = people.filter(person => person.name == clickedName);
         if (clickedImage == clickedAnswer[0].img) {
             console.log("correct");
-            hidePerson();
+            hideNameElement.classList.add("hideElement");
+            hideImageElement.classList.add("hideElement");
+           // elementen hide image en hide name element daar ga je een claas aan toevoegen en die class is hide element
         }
         else {
             console.log("False");

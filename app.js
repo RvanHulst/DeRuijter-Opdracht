@@ -40,15 +40,18 @@ function createTable() {
             compare();
         });
         var cell2 = row.insertCell(1);
-        cell2.id = "img" + index; 
-        cell2.addEventListener("click", function(){
-            clickedImage = document.getElementById('img'+index).innerHTML;
-            compare();
-        });
+        cell2.id = "cellIamge"+index;
+    
         var imageCell2 = document.createElement("img");
         imageCell2.src = photos[index];
         imageCell2.classList.add("imagePerson");
-        document.getElementById('img'+index).appendChild(imageCell2); 
+        imageCell2.id = "img" + index; 
+        document.getElementById('cellIamge'+index).appendChild(imageCell2); 
+
+        cell2.addEventListener("click", function(){
+            clickedImage = document.getElementById('img'+index).getAttribute('src');
+            compare();
+        });
     }
 }
 
@@ -58,10 +61,13 @@ function createTable() {
 function compare() {
     if(clickedName && clickedImage != null){
         const clickedAnswer = people.filter(person => person.name == clickedName);
-       //if (clickedImage == clickedAnswer.img) {
-       //    console.log("correct");
-       //}
-        console.log(clickedAnswer.img);
+        if (clickedImage == clickedAnswer[0].img) {
+            console.log("correct");
+            hidePerson();
+        }
+        else {
+            console.log("False");
+        }
         clickedName = null;
         clickedImage = null;
     }

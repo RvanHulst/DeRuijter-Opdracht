@@ -12,6 +12,8 @@ const people = [
 
 var clickedName;
 var clickedImage;
+var correct = null;
+var incorrect = null;
     
 buttonStart.onclick = function() {
     startPage.style.display = "none";
@@ -35,7 +37,7 @@ function createTable() {
         var cell1 = row.insertCell(0); 
         cell1.innerHTML = names[index];
         cell1.id = "name" + index; 
-        cell1.classList.add("")
+        cell1.classList.add("image");
         cell1.addEventListener("click", function(){
             clickedName = document.getElementById('name'+index).innerHTML;
             hideNameElement = document.getElementById('name'+index);
@@ -43,14 +45,13 @@ function createTable() {
         });
         var cell2 = row.insertCell(1);
         cell2.id = "cellIamge"+index;
-        cell2.classList.add("")
     
         var imageCell2 = document.createElement("img");
         imageCell2.src = photos[index];
-        imageCell2.classList.add("imagePerson");
+        imageCell2.classList.add("image");
         imageCell2.id = "img" + index; 
+    
         document.getElementById('cellIamge'+index).appendChild(imageCell2); 
-
         cell2.addEventListener("click", function(){
             clickedImage = document.getElementById('img'+index).getAttribute('src');
             hideImageElement = document.getElementById('img'+index);
@@ -69,13 +70,17 @@ function compare() {
             console.log("correct");
             hideNameElement.classList.add("hideElement");
             hideImageElement.classList.add("hideElement");
+            correct++;
            // elementen hide image en hide name element daar ga je een claas aan toevoegen en die class is hide element
         }
         else {
-            console.log("False");
+            console.log("Incorrect");
+            incorrect++;
         }
         clickedName = null;
         clickedImage = null;
+        console.log(correct);
+        console.log(incorrect);
     }
 }
 

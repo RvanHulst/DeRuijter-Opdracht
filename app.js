@@ -32,7 +32,7 @@ function createTable() {
     shuffle(photos);
     shuffle(names);
 
-    for (let index = 0; index < people.length; index++) {
+    for (var index = 0; index < people.length; index++) {
         var row = trainerTable.insertRow(1);
         var cell1 = row.insertCell(0); 
         cell1.innerHTML = names[index];
